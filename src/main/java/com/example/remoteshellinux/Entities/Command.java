@@ -14,7 +14,8 @@ import java.util.List;
 @Builder
 public class Command {
 
-    private int idcommand;
+    //private int idcommand;
     private String commandName;
     private List<String> resulcommand= new ArrayList<>();
+
 }
