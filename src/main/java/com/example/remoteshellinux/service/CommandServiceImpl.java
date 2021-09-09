@@ -5,6 +5,7 @@ import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -17,6 +18,7 @@ import java.util.List;
 @Service
 public class CommandServiceImpl implements  CommandService{
 
+    @Autowired
     private ConnectionService connectionService;
     @Override
     public List<String> getresltByCommand(String commandName) throws JSchException, IOException {
