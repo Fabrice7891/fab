@@ -31,10 +31,11 @@ public class CommandServiceImpl implements  CommandService{
         channel.connect();
 
         BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(in));
-        String line =bufferedReader.readLine();
+        String line;
         StringBuilder result = new StringBuilder();
-        while (line!=null){
-            result.append(line).append("/n");
+        while ((line =bufferedReader.readLine())!=null)
+        {
+            result.append(line).append("\n");
             System.out.println(line);
         }
 

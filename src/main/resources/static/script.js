@@ -3,8 +3,8 @@ var stompClient = null;
 
  function executeCommand() {
                 var command = document.getElementById('command').value;
-                  stompClient.send("/app/execute", {},
-                  JSON.stringify({'command':command}));
+                stompClient.send("/app/execute", {},
+                command);
             }
 
  function init() {
