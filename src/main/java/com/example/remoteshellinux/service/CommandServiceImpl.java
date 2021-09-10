@@ -1,43 +1,46 @@
 package com.example.remoteshellinux.service;
 
-import com.example.remoteshellinux.Entities.ConnectParams;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class CommandServiceImpl implements  CommandService{
 
-    @Autowired
-    private ConnectionService connectionService;
+    private final ConnectionService connectionService;
+
     @Override
-    public List<String> getresltByCommand(String commandName) throws JSchException, IOException {
-        ConnectParams connectParams= new ConnectParams();
-        Session session= connectionService.connection(connectParams);
+    public String executeCommand(String command) throws JSchException, IOException {
+        Session session= connectionService.getSession();
+        session.connect();
+
         Channel channel= session.openChannel("exec");
         InputStream in=channel.getInputStream();
-        ((ChannelExec) channel).setCommand(commandName);
+
+        ((ChannelExec) channel).setCommand(command);
         ((ChannelExec) channel).setErrStream(System.err);
         channel.connect();
+
         BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(in));
         String line =bufferedReader.readLine();
-        List<String> result= new ArrayList<>();
+        StringBuilder result = new StringBuilder();
         while (line!=null){
-            result.add(line);
+            result.append(line).append("/n");
             System.out.println(line);
         }
+
         channel.disconnect();
         session.disconnect();
-        return result;
+
+        return result.toString();
     }
 }

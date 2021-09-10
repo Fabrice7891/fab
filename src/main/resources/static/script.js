@@ -1,50 +1,29 @@
 var stompClient = null;
 
-function setConnected(connected) {
-    $("#connect").prop("disabled", connected);
-    $("#disconnect").prop("disabled", !connected);
-    if (connected) {
-        $("#conversation").show();
-    }
-    else {
-        $("#conversation").hide();
-    }
-    $("#greetings").html("");
-}
 
-function connect() {
-    var socket = new SockJS('/stomp-endpoint');
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
-        setConnected(true);
-        console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body));
-        });
-    });
-}
+ function executeCommand() {
+                var command = document.getElementById('command').value;
+                stompClient.send("/app/execute", {},
+                  JSON.stringify({'command':command}));
+            }
 
-function disconnect() {
-    if (stompClient !== null) {
-        stompClient.disconnect();
-    }
-    setConnected(false);
-    console.log("Disconnected");
-}
+ function init() {
+                 var socket = new SockJS('/execute');
+                 stompClient = Stomp.over(socket);
+                 stompClient.connect({}, function(frame) {
+                     setConnected(true);
+                     console.log('Connected: ' + frame);
+                     stompClient.subscribe('/command/output', function(commandOutput) {
+                         showCommandOutput(commandOutput.body);
+                     });
+                 });
+             }
 
-function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
-}
+ function showCommandOutput(commandOutput) {
+                 var response = document.getElementById('response');
+                 var p = document.createElement('p');
+                 p.style.wordWrap = 'break-word';
+                 p.appendChild(document.createTextNode(commandOutput));
+                 response.appendChild(p);
+             }
 
-function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message.message + "</td></tr>");
-}
-
-$(function () {
-    $("form").on('submit', function (e) {
-        e.preventDefault();
-    });
-    $( "#connect" ).click(function() { connect(); });
-    $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendName(); });
-});
