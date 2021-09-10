@@ -1,121 +1,27 @@
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello WebSocket</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet">
-    <script src="/webjars/jquery/jquery.min.js"></script>
-    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-    <script src="/script.js"></script>
-</head>
-<body onload="init()">
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-    enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
-<div id="main-content" class="container">
-    <div class="row">
-        <div>
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="command">Entrez votre commande</label>
-                    <input type="text" id="command" class="form-control" placeholder="Entrez votre commande...">
-                </div>
-
-            </form>
-            <button id="executeCommand" class="btn btn-default" onclick="executeCommand()">Executer</button>
-        </div>
-
-        <div class="col-md-12" style="margin-top:5px">
-            <p id="response"></p>
-        </div>
-    </div>
-</div>
-</body>
-</html>
--->
-
-
 
 <!doctype html>
 <html>
 <head>
     <title>Invite de commande Web</title>
     <link rel="stylesheet" media="screen" href="./bootstrap.min.css" />
-    <link rel="stylesheet" media="screen" href="./styles.css" />
+    <link rel="stylesheet" media="screen" href="./style.css" />
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
     <script src="/script.js"></script>
 </head>
-<body>
 
-<div class="container box-form">
-    <br>
-    <br>
-    <h3 class="text-center mb-5" >Connexion au serveur distant</h3>
-    <form name="connexionServeurDistant" onsubmit="envoieDonnee()">
-        <div class="row m-3">
-            <div class="col-md-2 col-sm-12">
-                <label>Hote ou ip :</label>
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <input type="text" name="hote" id="hote" class="form-control" placeholder="Hote ou adresse ip..." />
-            </div>
-        </div>
+<body onload="init()">
 
-        <div class="row m-3">
-            <div class="col-md-2 col-sm-12">
-                <label>Nom utilisateur :</label>
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <input type="text" name="username" id="username" class="form-control" placeholder="Nom utilisateur..." />
-            </div>
-        </div>
-
-        <div class="row m-3">
-            <div class="col-md-2 col-sm-12">
-                <label>Mot de passe :</label>
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe..." />
-            </div>
-        </div>
-
-        <div class="row m-3">
-            <div class="col-md-2 col-sm-12">
-                <label>Numero de port ssh :</label>
-            </div>
-            <div class="col-md-10 col-sm-12">
-                <input type="text" name="sshport" id="sshport" class="form-control" placeholder="Numero de port ssh..." />
-            </div>
-        </div>
-
-        <div class="row mt-5 mr-3">
-            <div class="col-md-12 d-flex justify-content-end">
-                <button type="submit" name="submitform" id="submitform" class="btn btn-primary">
-                    Se connecter
-                </button>
-            </div>
-        </div>
-    </form>
-
-</div>
-
-<br>
-<br>
-
-
-<div class="container box-form">
+<div class="container box-form" style="margin-top:10px">
     <h3 class="text-center mb-5" >Terminal serveur distant</h3>
-    <form name="connexionServeurDistant" onsubmit="envoieDonnee()">
         <div class="row m-3">
-            <!-- <div class="col-md-2 col-sm-12">
-             <label>saisir une commmande :</label>
-            </div> -->
+
             <div class="col-md-10 col-sm-12">
-                <input type="text" name="hote" id="hote" class="form-control" placeholder="Saisir une commmande..." />
+                <input type="text" name="command" id="command" class="form-control" placeholder="Saisir une commmande..." />
             </div>
             <div class="col-md-2 col-sm-12">
-                <button type="button" name="validcmd" id="validcmd" class="btn btn-primary form-control">
+                <button onclick="executeCommand()" type="button" name="validcmd" id="validcmd" class="btn btn-primary form-control">
                     Valider
                 </button>
             </div>
@@ -128,19 +34,12 @@
         </div>
         <div class="row m-3">
             <div class="col-md-12">
-                <textarea name="result" id="result" class="form-control" rows="20" ></textarea>
+                <textarea name="result" id="response" class="form-control" rows="20" >
+                </textarea>
             </div>
         </div>
-    </form>
 
 </div>
-
-<script>
-			function envoieDonnee(){
-				alert("Soumission des donnees...")
-				return false;
-			}
-		</script>
 
 </body>
 </html>

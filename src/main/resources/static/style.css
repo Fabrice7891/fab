@@ -30,9 +30,8 @@ body{
 }
 .box-form{
 	position: relative;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	width: 60vw;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background-color: #FFFFFF;
 	border-radus: 10px;
 	-webkit-border-radus: 10px;
