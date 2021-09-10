@@ -12,6 +12,7 @@
 	<artifactId>remoteshellinux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>remoteshellinux</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -78,7 +79,6 @@
 <!--			<version>2.10.2</version>-->
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
@@ -120,17 +120,8 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
-			<!--<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-                  <descriptorRefs>
-					  <descriptorRef>jar-with-dependencies</descriptorRef>
-				  </descriptorRefs>
-				</configuration>
-			</plugin>-->
 		</plugins>
+		<finalName>ShellAppp-V1</finalName>
 	</build>
 
 </project>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Terminal serveur distant</title>
+		<link rel="stylesheet" media="screen" href="./bootstrap.min.css" />
+		<link rel="stylesheet" media="screen" href="./styles.css" />
+	</head>
+	<body>
+		
+		<div class="container box-form">
+			<h3 class="text-center mb-5" >Terminal serveur distant</h3>
+			<form name="connexionServeurDistant" onsubmit="envoieDonnee()">
+				<div class="row m-3">
+					<!-- <div class="col-md-2 col-sm-12">
+					 <label>saisir une commmande :</label>
+					</div> -->
+					<div class="col-md-10 col-sm-12">
+						<input type="text" name="hote" id="hote" class="form-control" placeholder="Saisir une commmande..." />
+					</div>
+					<div class="col-md-2 col-sm-12">
+						<button type="button" name="validcmd" id="validcmd" class="btn btn-primary form-control">
+							Valider
+						</button>
+					</div>
+				</div>
+				
+				<div class="row m-3">
+					<div class="col-md-12">
+					 <label>Resultat :</label>
+					</div>
+				</div>
+				<div class="row m-3">
+					<div class="col-md-12">
+						<textarea name="result" id="result" class="form-control" rows="20" ></textarea>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+		
+		<script>
+			function envoieDonnee(){
+				alert("Soumission des donnees...")
+				return false;
+			}
+		</script>
+		
+	</body>
+</html>
