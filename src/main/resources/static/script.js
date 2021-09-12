@@ -2,9 +2,7 @@ var stompClient = null;
 
 
  function executeCommand() {
-                var command = document.getElementById('command').value;
-                stompClient.send("/app/execute", {},
-                command);
+                stompClient.send("/app/execute", {}, $('#command').val());
             }
 
  function init() {
@@ -19,7 +17,6 @@ var stompClient = null;
              }
 
  function showCommandOutput(commandOutput) {
-                 var response = document.getElementById('response');
-                 response.appendChild(document.createTextNode(commandOutput));
-             }
+            $('#response').val(commandOutput)
+ }
 
