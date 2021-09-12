@@ -1,6 +1,7 @@
-package com.example.remoteshellinux.service;
+package com.example.remoteshellinux.service.impl;
 
 import com.example.remoteshellinux.config.ConnectionProperties;
+import com.example.remoteshellinux.service.ConnectionService;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
@@ -11,7 +12,7 @@ import java.util.Properties;
 
 @Service
 @AllArgsConstructor
-public class ConnectionServiceImpl implements  ConnectionService{
+public class ConnectionServiceImpl implements ConnectionService {
 
     private final ConnectionProperties connectionProperties;
 

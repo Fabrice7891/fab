@@ -1,4 +1,4 @@
-package com.example.remoteshellinux.Entities;
+package com.example.remoteshellinux.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,8 +14,7 @@ import java.util.List;
 @Builder
 public class Command {
 
-    //private int idcommand;
     private String commandName;
-    private List<String> resulcommand= new ArrayList<>();
+    private List<String> resultCommand = new ArrayList<>();
 
 }

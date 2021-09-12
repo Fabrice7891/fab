@@ -1,5 +1,7 @@
-package com.example.remoteshellinux.service;
+package com.example.remoteshellinux.service.impl;
 
+import com.example.remoteshellinux.service.CommandService;
+import com.example.remoteshellinux.service.ConnectionService;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSchException;
@@ -14,7 +16,7 @@ import java.io.InputStreamReader;
 
 @Service
 @AllArgsConstructor
-public class CommandServiceImpl implements  CommandService{
+public class CommandServiceImpl implements CommandService {
 
     private final ConnectionService connectionService;
 
