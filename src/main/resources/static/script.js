@@ -5,7 +5,7 @@ function executeCommand() {
         }
 
 function init() {
-             var socket = new SockJS('/execute');
+             var socket = new SockJS('http://localhost:8080/remote-shell-linux/execute');
              stompClient = Stomp.over(socket);
              stompClient.connect({}, function(frame) {
                  console.log('Connected: ' + frame);

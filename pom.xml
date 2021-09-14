@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>remoteshellinux</artifactId>
+	<artifactId>remote-shell-linux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>remoteshellinux</name>
+	<name>remote-shell-linux</name>
 	<packaging>war</packaging>
-	<description>Demo project for Spring Boot</description>
+	<description>Shell Linux Project</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<springBoot.version>2.4.5</springBoot.version>
@@ -128,7 +128,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>ShellAppp-V1</finalName>
+		<finalName>remote-shell-linux</finalName>
 	</build>
 
 </project>
