@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invite de commande Web</title>
+    <link rel="stylesheet" media="screen" href="./bootstrap.min.css" />
+    <link rel="stylesheet" media="screen" href="./style.css" />
+    <script src="jquery.min.js"></script>
+    <script src="sockjs.min.js"></script>
+    <script src="stomp.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body onload="init()">
+
+<div class="container box-form" style="margin-top:10px">
+    <h2 class="text-center mb-5" >Shell linux distant</h2>
+    <div class="row m-3">
+        <h3 class="text-center mb-5" >Terminal serveur distant</h3>
+        <div class="col-md-10 col-sm-12">
+            <input type="text" name="command" id="command" class="form-control" placeholder="Saisir une commande ..." />
+        </div>
+        <div class="col-md-2 col-sm-12">
+            <button onclick="executeCommand()" type="button" name="validcmd" id="validcmd" class="btn btn-primary form-control">
+                Valider
+            </button>
+        </div>
+    </div>
+
+    <div class="row m-3">
+        <div class="col-md-12">
+            <label> <strong>Resultat :</strong> </label>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-md-12">
+                <textarea name="result" id="response" class="form-control" rows="20" >
+                </textarea>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

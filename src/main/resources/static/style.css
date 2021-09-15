@@ -1,0 +1,21 @@
+body{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: #add8e6;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.box-form{
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #FFFFFF;
+	border-radus: 10px;
+	-webkit-border-radus: 10px;
+	-ms-border-radus: 10px;
+	-moz-border-radus: 10px;
+}
